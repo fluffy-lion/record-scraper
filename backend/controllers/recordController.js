@@ -45,7 +45,14 @@ const createRecord = async (req, res) => {
     res.status(200).json(record)
 }
 
+const deleteRecord = async (req, res) => {
+    let { id } = req.params
+    let response = await Record.findByIdAndDelete(id)
+    res.status(200).json(response)
+}
+
 module.exports = {
     getRecordData, 
-    createRecord
+    createRecord,
+    deleteRecord
 }
