@@ -2,13 +2,15 @@ require('dotenv').config()
 
 const express = require('express')
 const mongoose = require('mongoose')
+const recordRoutes = require('./routes/recordRoutes')
 
 const app = express()
 app.use(express.json())
-// app.use routes
+app.use(express.json())
+app.use('/record-scraper', recordRoutes)
+
 mongoose.connect(process.env.MONGO_URL)
     .then(() => {
-
         app.listen(process.env.PORT, () => {
             console.log(`listening on port ${process.env.PORT}, connected to db`)
         })
@@ -16,3 +18,4 @@ mongoose.connect(process.env.MONGO_URL)
     .catch((error) => {
         console.log(error)
     })
+
