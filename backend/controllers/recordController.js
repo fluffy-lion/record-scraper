@@ -1,6 +1,7 @@
 
 const axios = require('axios')
 const cheerio = require('cheerio')
+const Record = require('../models/record')
 
 const getRecordData = async (req, res) => {
     console.log('getting data')
@@ -32,6 +33,19 @@ const getRecordData = async (req, res) => {
         res.status(200).json(data)
 }
 
+const createRecord = async (req, res) => {
+    const { title, img, release, price } = req.body
+    const record = new Record({
+        title: title,
+        img: img,
+        release: release,
+        price: price
+    })
+    await record.save()
+    res.status(200).json(record)
+}
+
 module.exports = {
-    getRecordData
+    getRecordData, 
+    createRecord
 }
