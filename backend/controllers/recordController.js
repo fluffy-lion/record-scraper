@@ -33,6 +33,11 @@ const getRecordData = async (req, res) => {
         res.status(200).json(data)
 }
 
+const getSavedRecords = async (req, res) => {
+    let response = await Record.find({})
+    res.status(200).json(response)
+}
+
 const createRecord = async (req, res) => {
     const { title, img, release, price } = req.body
     const record = new Record({
@@ -54,5 +59,6 @@ const deleteRecord = async (req, res) => {
 module.exports = {
     getRecordData, 
     createRecord,
-    deleteRecord
+    deleteRecord,
+    getSavedRecords
 }
