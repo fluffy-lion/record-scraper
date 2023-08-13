@@ -1,6 +1,10 @@
 import React from 'react'
+import { Button } from './Button'
 
-export const Card = ({ record }) => {
+
+export const Card = ({ handler, record, buttonText }) => {
+
+ 
   return (
     <div>
       <h2>
@@ -8,7 +12,8 @@ export const Card = ({ record }) => {
       </h2>
       <img src={record.img} />
       <h3>{record.price}</h3>
-      <p><a target='_blank' href={record.release}> go to record</a></p>
+      <p><a target='_blank' rel='noreferrer' href={record.release}> go to record</a></p>
+      <Button buttonText={buttonText} handler={handler}/>
     </div>
   )
 }
