@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Home from './pages/Home';
 import Saved from './pages/Saved';
-import Navbar from './components/Navbar';
+import Navbar from './components/Navbar/Navbar';
 const App = () => {
   return (
     <div>

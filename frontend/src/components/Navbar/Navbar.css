@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;   
+}
+
+.my-button {
+  background-color: transparent;
+  border: 10px;
+  color: black;
+  cursor: pointer;
+  font-size: 30px;
+  margin-left: 32px;
+  float: left;
+  line-height: 70px;
+  display: none;
+}
+
+.my-button:focus {
+  outline: none;
+}
+
+nav {
+    background-color: grey;
+    flex-wrap: wrap;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none
+}
+
+nav ul li {
+    padding: 20px 20px;
+}
+
+nav ul li .link {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li:hover {
+    text-decoration: underline;
+    text-decoration-color: red;
+}
+
+
+@media (max-width: 800px) {
+  nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  nav ul.show {
+    display: flex;
+  }
+  
+  .my-button {
+    display: block;
+  }
+}
+
+@media (max-width: 600px) {
+    nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  nav ul.show {
+    display: flex;
+  }
+  
+  .my-button {
+    display: block;
+  }
+    nav {
+        background-color: rgb(62, 109, 149);
+    }
+}
