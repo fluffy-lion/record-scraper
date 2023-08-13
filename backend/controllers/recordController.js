@@ -34,7 +34,7 @@ const getRecordData = async (req, res) => {
 }
 
 const getSavedRecords = async (req, res) => {
-    let response = await Record.find({})
+    let response = await Record.find({}).sort({ createdAt: -1 });
     res.status(200).json(response)
 }
 

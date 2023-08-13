@@ -3,10 +3,11 @@ require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const recordRoutes = require('./routes/recordRoutes')
+const cors = require('cors')
 
 const app = express()
 app.use(express.json())
-app.use(express.json())
+app.use(cors())
 app.use('/record-scraper', recordRoutes)
 
 mongoose.connect(process.env.MONGO_URL)
@@ -19,3 +20,4 @@ mongoose.connect(process.env.MONGO_URL)
         console.log(error)
     })
 
+// process.env
