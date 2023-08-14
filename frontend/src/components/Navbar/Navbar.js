@@ -1,15 +1,18 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import './Navbar.css'
 
 const Navbar = () => {
+    const [toggle, setToggle] = useState(false)
+   
     return (
         <div>
             <header>
-                <nav>
-                <button class="my-button" id="my-button">
-        <i class="fas fa-bars"></i>
-    </button>
-                    <ul>
+                <nav className={toggle ? "show" : "hide" }>
+                    <button onClick={() => setToggle(!toggle)} className="my-button" id="my-button">
+                        <div className="fas fa-bars"></div>
+                    </button>
+                    <ul id='mynav'>
                         <li>
                             <Link className="link" to='/'>
                                 home
