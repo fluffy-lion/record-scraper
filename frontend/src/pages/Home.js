@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { Card } from '../components/Card'
+
+import Data from '../dataResponse/get-records.json'
 const Home = () => {
     const [records, setRecords] = useState([])
     const addRecord = async (e, record) => {
@@ -22,9 +24,11 @@ const Home = () => {
     useEffect(() => {
         const fetchRecords = async () => {
             console.log('making call')
-            const response = await fetch(`http://localhost:4000/record-scraper/get-records`)
-            let data = await response.json()
-            setRecords(data)
+            // const response = await fetch(`http://localhost:4000/record-scraper/get-records`)
+            // let data = await response.json()
+            // using mock data
+            const response =  Data
+            setRecords(response)
         }
         fetchRecords()
     }, [])
