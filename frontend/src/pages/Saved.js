@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Card } from "../components/Card"
+import { CardLg } from "../components/CardLg"
 const Saved = () => {
   const [records, setRecords] = useState([])
 
@@ -38,7 +38,7 @@ if(!records) return <h2>loading...</h2>
     <div>
         <h1>Saved</h1>
         {records.map((record) => {
-          return <Card key={record._id} handler={() => deleteRecord(record)} buttonText='Remove' record={record} />
+          return <CardLg key={record._id} handler={() => deleteRecord(record)} buttonText='Remove' record={record} />
         })}
     </div>
   )

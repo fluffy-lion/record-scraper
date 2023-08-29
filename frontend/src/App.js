@@ -4,31 +4,28 @@ import Home from './pages/Home';
 import Saved from './pages/Saved';
 import Navbar from './components/Navbar/Navbar';
 import { useState, useEffect, useMemo } from 'react';
+import React from 'react'
+
+import { useMediaQueries } from './media/mediaQueries';
+
 const App = () => {
-  function useMediaQuery(query: string) {
-    const mediaQuery = useMemo(() => window.matchMedia(query), [query]);
-    const [match, setMatch] = useState(mediaQuery.matches);
   
-    useEffect(() => {
-      const onChange = () => setMatch(mediaQuery.matches);
-      mediaQuery.addEventListener("change", onChange);
+  // function ResponsiveComponent() {
+  //   const { md, lg } = useMediaQueries();
   
-      return () => mediaQuery.removeEventListener("change", onChange);
-    }, [mediaQuery]);
-  
-    return match;
-  }
-  function useMediaQueries() {
-    const md = useMediaQuery("(min-width: 800px)");
-    const lg = useMediaQuery("(min-width: 1200px)");
-  
-    return { md, lg };
-  }
-  
+  //   if (lg) {
+  //     return <p>Desktop device</p>;
+  //   }
+  //   if (md) {
+  //     return <p>Tablet device</p>;
+  //   }
+  //   return <p>Mobile device</p>;
+  // }
   return (
     <div>
       <BrowserRouter>
         <Navbar />
+      
         <Routes>
           <Route 
             path='/'
@@ -43,5 +40,7 @@ const App = () => {
     </div>
   )
 }
+
+
 
 export default App;

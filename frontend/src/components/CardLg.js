@@ -2,7 +2,7 @@ import React from 'react'
 import { Button } from './Button'
 
 
-export const Card = ({ handler, record, buttonText }) => {
+export const CardLg = ({ handler, record, buttonText }) => {
 
  
   return (
